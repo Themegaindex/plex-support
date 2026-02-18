@@ -30,7 +30,7 @@ const seriesLibraries = [
   { name: 'Serien Original', desc: 'Serien in der Originalsprache' },
 ];
 
-const base = import.meta.env.BASE_URL;
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 const paymentMethods = [
   { name: 'PayPal', desc: 'Schnelle und sichere Zahlung über PayPal.', icon: 'paypal' },
   { name: 'Lastschrift', desc: 'Bequeme Abbuchung direkt von deinem Bankkonto.', icon: 'bank' },
@@ -172,7 +172,7 @@ const paymentMethods = [
           </ul>
         </div>
       </div>
-      <p class="support-note">Sollten sich hieraus Fragen ergeben, kannst du dich gerne per <a href={`${base}kontakt`}>Kontaktformular</a> oder E-Mail an <a href="mailto:plex.hilfe24@gmail.com">plex.hilfe24@gmail.com</a> an uns wenden.</p>
+      <p class="support-note">Sollten sich hieraus Fragen ergeben, kannst du dich gerne per <a href={`${base}/kontakt`}>Kontaktformular</a> oder E-Mail an <a href="mailto:plex.hilfe24@gmail.com">plex.hilfe24@gmail.com</a> an uns wenden.</p>
     </div>
   </section>
 </Layout>

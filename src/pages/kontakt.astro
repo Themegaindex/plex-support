@@ -1,6 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
-const base = import.meta.env.BASE_URL;
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 ---
 
 <Layout title="Kontakt - Plex Support" description="Kontaktiere das Plex Support Support-Team per E-Mail oder Kontaktformular.">
@@ -30,8 +30,8 @@ const base = import.meta.env.BASE_URL;
           <div class="support-scope card">
             <h3>Bevor du schreibst</h3>
             <ul>
-              <li>Schaue in den <a href={`${base}faq`}>FAQ</a> nach, ob deine Frage schon beantwortet wurde</li>
-              <li>Prüfe die <a href={`${base}hilfe`}>Hilfe-Seite</a> für Fehlerbehebung</li>
+              <li>Schaue in den <a href={`${base}/faq`}>FAQ</a> nach, ob deine Frage schon beantwortet wurde</li>
+              <li>Prüfe die <a href={`${base}/hilfe`}>Hilfe-Seite</a> für Fehlerbehebung</li>
               <li>Beschreibe dein Problem so genau wie möglich</li>
               <li>Nenne dein Gerät und die verwendete App</li>
             </ul>
