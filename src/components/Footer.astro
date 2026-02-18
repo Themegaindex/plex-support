@@ -1,4 +1,5 @@
 ---
+const base = import.meta.env.BASE_URL;
 const year = new Date().getFullYear();
 ---
 
@@ -6,8 +7,8 @@ const year = new Date().getFullYear();
   <div class="footer-container">
     <div class="footer-grid">
       <div class="footer-brand">
-        <a href="/" class="footer-logo">
-          <img src="/logo.png" alt="Plex Support Logo" width="32" height="32" />
+        <a href={base} class="footer-logo">
+          <img src={`${base}logo.png`} alt="Plex Support Logo" width="32" height="32" />
           <span>Plex Support</span>
         </a>
         <p class="footer-desc">Dein Support-Portal für alle Fragen rund um Plex und Streaming.</p>
@@ -16,21 +17,21 @@ const year = new Date().getFullYear();
       <div class="footer-col">
         <h4>Navigation</h4>
         <ul>
-          <li><a href="/">Startseite</a></li>
-          <li><a href="/dienste">Dienste</a></li>
-          <li><a href="/faq">FAQ</a></li>
-          <li><a href="/hilfe">Hilfe</a></li>
-          <li><a href="/kontakt">Kontakt</a></li>
+          <li><a href={base}>Startseite</a></li>
+          <li><a href={`${base}dienste`}>Dienste</a></li>
+          <li><a href={`${base}faq`}>FAQ</a></li>
+          <li><a href={`${base}hilfe`}>Hilfe</a></li>
+          <li><a href={`${base}kontakt`}>Kontakt</a></li>
         </ul>
       </div>
 
       <div class="footer-col">
         <h4>Hilfe</h4>
         <ul>
-          <li><a href="/hilfe#streaming">Streaming-Probleme</a></li>
-          <li><a href="/hilfe#verbindung">Verbindungsprobleme</a></li>
-          <li><a href="/hilfe#einstellungen">Einstellungen</a></li>
-          <li><a href="/hilfe#konto">Konto einrichten</a></li>
+          <li><a href={`${base}hilfe#streaming`}>Streaming-Probleme</a></li>
+          <li><a href={`${base}hilfe#verbindung`}>Verbindungsprobleme</a></li>
+          <li><a href={`${base}hilfe#einstellungen`}>Einstellungen</a></li>
+          <li><a href={`${base}hilfe#konto`}>Konto einrichten</a></li>
         </ul>
       </div>
 
@@ -46,7 +47,7 @@ const year = new Date().getFullYear();
               plex.hilfe24@gmail.com
             </a>
           </li>
-          <li><a href="/kontakt">Kontaktformular</a></li>
+          <li><a href={`${base}kontakt`}>Kontaktformular</a></li>
         </ul>
       </div>
     </div>

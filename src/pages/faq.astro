@@ -1,6 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 
+const base = import.meta.env.BASE_URL;
 const faqItems = [
   {
     q: 'Die Wiedergabe stockt / buffert. Was kann ich tun?',
@@ -12,7 +13,7 @@ const faqItems = [
 <li><strong>Bandbreite priorisieren:</strong> Stelle in deinen Router-Einstellungen sicher, dass dein Streaming-Gerät Vorrang hat.</li>
 <li><strong>Peering-Probleme:</strong> Manchmal liegt es an der Verbindung zwischen Internetanbietern (Peering). Ein VPN kann hier helfen, indem es alternative Routen für den Datenverkehr nutzt.</li>
 </ul>
-<p>Mehr dazu findest du unter <a href="/hilfe#streaming">Hilfe &rarr; Streaming-Probleme</a>.</p>`,
+<p>Mehr dazu findest du unter <a href="${base}hilfe#streaming">Hilfe &rarr; Streaming-Probleme</a>.</p>`,
     category: 'streaming',
   },
   {
@@ -71,7 +72,7 @@ const faqItems = [
   {
     q: 'Titel XY ist laut Request Lounge verfügbar, ich sehe ihn aber nicht',
     a: `<p>Aktualisiere als erstes deine Mediathek oder warte den automatischen Scan ab, der alle 6 Stunden durchgeführt wird.</p>
-<p>Prüfe außerdem, ob alle Mediathek-Pfade hinzugefügt wurden. Siehe dazu die <a href="/hilfe#mediatheken">Anleitung zum Hinzufügen von Mediatheken</a>.</p>`,
+<p>Prüfe außerdem, ob alle Mediathek-Pfade hinzugefügt wurden. Siehe dazu die <a href="${base}hilfe#mediatheken">Anleitung zum Hinzufügen von Mediatheken</a>.</p>`,
     category: 'allgemein',
   },
   {
@@ -173,7 +174,7 @@ const categories = [
         ))}
       </div>
 
-      <p class="faq-empty" id="faq-empty" style="display:none;">Keine Ergebnisse gefunden. Versuche eine andere Suche oder <a href="/kontakt">kontaktiere uns</a>.</p>
+      <p class="faq-empty" id="faq-empty" style="display:none;">Keine Ergebnisse gefunden. Versuche eine andere Suche oder <a href={`${base}kontakt`}>kontaktiere uns</a>.</p>
     </div>
   </section>
 </Layout>

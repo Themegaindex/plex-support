@@ -1,18 +1,19 @@
 ---
+const base = import.meta.env.BASE_URL;
 const currentPath = Astro.url.pathname;
 const navLinks = [
-  { href: '/', label: 'Startseite' },
-  { href: '/dienste', label: 'Dienste' },
-  { href: '/faq', label: 'FAQ' },
-  { href: '/hilfe', label: 'Hilfe' },
-  { href: '/kontakt', label: 'Kontakt' },
+  { href: base, label: 'Startseite' },
+  { href: `${base}dienste`, label: 'Dienste' },
+  { href: `${base}faq`, label: 'FAQ' },
+  { href: `${base}hilfe`, label: 'Hilfe' },
+  { href: `${base}kontakt`, label: 'Kontakt' },
 ];
 ---
 
 <header class="nav-header">
   <div class="nav-container">
-    <a href="/" class="nav-logo" aria-label="Plex Support Startseite">
-      <img src="/logo.png" alt="Plex Support Logo" width="32" height="32" />
+    <a href={base} class="nav-logo" aria-label="Plex Support Startseite">
+      <img src={`${base}logo.png`} alt="Plex Support Logo" width="32" height="32" />
       <span>Plex Support</span>
     </a>
 

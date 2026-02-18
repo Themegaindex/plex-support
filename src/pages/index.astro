@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
+const base = import.meta.env.BASE_URL;
 ---
 
 <Layout title="Plex Support - Hilfe & Dokumentation">
@@ -10,8 +11,8 @@ import Layout from '../layouts/Layout.astro';
         <h1>Willkommen bei Plex Support</h1>
         <p>Hier findest du Anleitungen, Antworten auf die häufigsten Fragen und Hilfe bei Problemen mit deinem Streaming-Service.</p>
         <div class="hero-actions">
-          <a href="/faq" class="btn btn-primary">Häufige Fragen</a>
-          <a href="/hilfe" class="btn btn-secondary">Hilfe & Fehlerbehebung</a>
+          <a href={`${base}faq`} class="btn btn-primary">Häufige Fragen</a>
+          <a href={`${base}hilfe`} class="btn btn-secondary">Hilfe & Fehlerbehebung</a>
         </div>
       </div>
     </div>
@@ -21,7 +22,7 @@ import Layout from '../layouts/Layout.astro';
     <div class="container">
       <h2 class="section-title">Schnellzugriff</h2>
       <div class="cards-grid">
-        <a href="/faq" class="quick-card">
+        <a href={`${base}faq`} class="quick-card">
           <div class="quick-card-icon icon-blue">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <circle cx="12" cy="12" r="10"/>
@@ -33,7 +34,7 @@ import Layout from '../layouts/Layout.astro';
           <p>Antworten auf die häufigsten Fragen rund um deinen Streaming-Service.</p>
         </a>
 
-        <a href="/hilfe#streaming" class="quick-card">
+        <a href={`${base}hilfe#streaming`} class="quick-card">
           <div class="quick-card-icon icon-yellow">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
@@ -43,7 +44,7 @@ import Layout from '../layouts/Layout.astro';
           <p>Buffering, Verbindungsfehler und Wiedergabe-Probleme lösen.</p>
         </a>
 
-        <a href="/hilfe#konto" class="quick-card">
+        <a href={`${base}hilfe#konto`} class="quick-card">
           <div class="quick-card-icon icon-green">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
@@ -54,7 +55,7 @@ import Layout from '../layouts/Layout.astro';
           <p>Schritt-für-Schritt-Anleitung zur Konto-Erstellung und Server-Einrichtung.</p>
         </a>
 
-        <a href="/kontakt" class="quick-card">
+        <a href={`${base}kontakt`} class="quick-card">
           <div class="quick-card-icon icon-red">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <rect x="2" y="4" width="20" height="16" rx="2"/>
