@@ -43,6 +43,9 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
           <p class="form-desc">Fülle das Formular aus und wir melden uns so schnell wie möglich.</p>
 
           <form id="contact-form" novalidate>
+            <input type="hidden" name="access_key" value="DEIN_ACCESS_KEY" />
+            <input type="hidden" name="subject" value="Neue Nachricht über Plex Support Kontaktformular" />
+            <input type="hidden" name="from_name" value="Plex Support Website" />
             <div class="form-group">
               <label for="name">Name *</label>
               <input type="text" id="name" name="name" required autocomplete="name" placeholder="Dein Name" />
@@ -91,7 +94,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
               <polyline points="22 4 12 14.01 9 11.01"/>
             </svg>
             <h3>Nachricht gesendet!</h3>
-            <p>Dein E-Mail-Programm wurde geöffnet. Sende die E-Mail ab, um uns deine Nachricht zukommen zu lassen.</p>
+            <p>Wir haben deine Nachricht erhalten und melden uns so schnell wie möglich.</p>
           </div>
         </div>
       </div>
@@ -318,6 +321,8 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 <script>
   const form = document.getElementById('contact-form') as HTMLFormElement;
   const submitBtn = document.getElementById('submit-btn');
+  const btnText = submitBtn?.querySelector('.btn-text') as HTMLElement;
+  const btnLoading = submitBtn?.querySelector('.btn-loading') as HTMLElement;
   const successMsg = document.getElementById('form-success');
 
   function validateField(id: string, errorMsg: string): boolean {
@@ -341,7 +346,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
     return true;
   }
 
-  form?.addEventListener('submit', (e) => {
+  form?.addEventListener('submit', async (e) => {
     e.preventDefault();
 
     const validName = validateField('name', 'Bitte gib deinen Namen ein.');
@@ -351,18 +356,34 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 
     if (!validName || !validEmail || !validSubject || !validMessage) return;
 
-    const name = (document.getElementById('name') as HTMLInputElement).value.trim();
-    const email = (document.getElementById('email') as HTMLInputElement).value.trim();
-    const subject = (document.getElementById('subject') as HTMLSelectElement).value;
-    const message = (document.getElementById('message') as HTMLTextAreaElement).value.trim();
+    if (btnText) btnText.style.display = 'none';
+    if (btnLoading) btnLoading.style.display = 'inline-flex';
+    if (submitBtn) (submitBtn as HTMLButtonElement).disabled = true;
 
-    const body = `Name: ${name}\nE-Mail: ${email}\n\n${message}`;
-    const mailtoLink = `mailto:plex.hilfe24@gmail.com?subject=${encodeURIComponent(`[Plex Support] ${subject}`)}&body=${encodeURIComponent(body)}`;
+    try {
+      const data = new FormData(form);
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        body: data,
+      });
 
-    window.location.href = mailtoLink;
+      const result = await response.json();
 
-    if (form) form.style.display = 'none';
-    if (successMsg) successMsg.style.display = 'flex';
+      if (result.success) {
+        if (form) form.style.display = 'none';
+        if (successMsg) successMsg.style.display = 'flex';
+      } else {
+        alert('Fehler beim Senden. Bitte schreib uns direkt an plex.hilfe24@gmail.com');
+        if (btnText) btnText.style.display = 'inline';
+        if (btnLoading) btnLoading.style.display = 'none';
+        if (submitBtn) (submitBtn as HTMLButtonElement).disabled = false;
+      }
+    } catch {
+      alert('Fehler beim Senden. Bitte schreib uns direkt an plex.hilfe24@gmail.com');
+      if (btnText) btnText.style.display = 'inline';
+      if (btnLoading) btnLoading.style.display = 'none';
+      if (submitBtn) (submitBtn as HTMLButtonElement).disabled = false;
+    }
   });
 
   ['name', 'email', 'subject', 'message'].forEach(id => {
