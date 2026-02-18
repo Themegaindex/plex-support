@@ -1,0 +1,614 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Hilfe & Fehlerbehebung - Plex Support" description="Anleitungen, Fehlerbehebung und Einrichtungshilfe für deinen Plex Support Streaming-Service.">
+  <div class="page-header">
+    <div class="container">
+      <h1>Hilfe & Fehlerbehebung</h1>
+      <p>Schritt-für-Schritt Anleitungen und Lösungen für die gängigsten Probleme.</p>
+    </div>
+  </div>
+
+  <div class="container">
+    <nav class="toc" aria-label="Inhaltsverzeichnis">
+      <h2 class="toc-title">Inhaltsverzeichnis</h2>
+      <ul>
+        <li><a href="#streaming">Streaming-Probleme / Buffering</a></li>
+        <li><a href="#verbindung">Verbindungsprobleme</a></li>
+        <li><a href="#4k">4K-Wiedergabe</a></li>
+        <li><a href="#einstellungen">Empfohlene Einstellungen</a></li>
+        <li><a href="#konto">Konto einrichten</a></li>
+        <li><a href="#mediatheken">Mediatheken hinzufügen</a></li>
+        <li><a href="#datenschutz">Datenschutz & Tracking</a></li>
+      </ul>
+    </nav>
+  </div>
+
+  <!-- STREAMING -->
+  <section class="help-section section" id="streaming">
+    <div class="container">
+      <div class="section-badge badge-yellow">Fehlerbehebung</div>
+      <h2>Streaming-Probleme / Buffering</h2>
+      <p class="section-intro">Bei Problemen mit der Wiedergabe hilft meistens schon ein Blick auf die Internetverbindung.</p>
+
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">1</div>
+          <div class="step-content">
+            <h3>Router neu starten</h3>
+            <p>Trenne den Router kurz vom Strom, warte 30 Sekunden und stecke ihn wieder an. Das behebt viele vorübergehende Verbindungsprobleme.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <div class="step-content">
+            <h3>Kabelverbindung nutzen</h3>
+            <p>Wenn möglich, schließe dein Gerät per <strong>Ethernet-Kabel (LAN)</strong> direkt an den Router an. Eine kabelgebundene Verbindung ist stabiler und schneller als WLAN.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <div class="step-content">
+            <h3>Internetgeschwindigkeit prüfen</h3>
+            <p>Teste deine Verbindung über eine Speedtest-Website. Für HD-Inhalte werden mindestens <strong>30 Mbit/s</strong> empfohlen, für 4K mindestens <strong>100 Mbit/s</strong>.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">4</div>
+          <div class="step-content">
+            <h3>Andere Geräte & Apps schließen</h3>
+            <p>Downloads, Updates oder andere Streaming-Dienste im Hintergrund können deine Bandbreite stark beanspruchen. Schließe alle nicht benötigten Anwendungen.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">5</div>
+          <div class="step-content">
+            <h3>VPN ausprobieren</h3>
+            <p>Manchmal gibt es Engpässe zwischen Internetanbietern (Peering), obwohl dein Internet grundsätzlich schnell genug ist. Ein VPN kann helfen, indem es alternative Routen nutzt.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VERBINDUNG -->
+  <section class="help-section section" id="verbindung">
+    <div class="container">
+      <div class="section-badge badge-red">Fehlerbehebung</div>
+      <h2>Verbindungsprobleme</h2>
+      <p class="section-intro">Wenn Plex Probleme macht, helfen diese allgemeinen Schritte in den meisten Fällen.</p>
+
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">1</div>
+          <div class="step-content">
+            <h3>Plex App neu starten</h3>
+            <p>Schließe die Plex App vollständig und öffne sie erneut. Bei Browsern hilft es, den Tab zu schließen und eine neue Sitzung zu starten.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <div class="step-content">
+            <h3>Server neu starten</h3>
+            <p>Starte den Plex Media Server über das Kronos Control Panel neu. Nach wenigen Minuten sollte der Server wieder erreichbar sein.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <div class="step-content">
+            <h3>App-Cache leeren</h3>
+            <p>Leere in den Einstellungen deiner Plex App den Cache. Veraltete Daten können manchmal zu Fehlern führen.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="warning-box">
+        <strong>Nichts hat geholfen?</strong> Schreib uns eine E-Mail an <a href="mailto:plex.hilfe24@gmail.com">plex.hilfe24@gmail.com</a> — wir helfen dir gerne weiter.
+      </div>
+    </div>
+  </section>
+
+  <!-- 4K -->
+  <section class="help-section section" id="4k">
+    <div class="container">
+      <div class="section-badge badge-blue">Einstellungen</div>
+      <h2>4K-Wiedergabe</h2>
+      <p class="section-intro">4K-Inhalte können nur per Direct Play abgespielt werden. Transcoding von 4K ist nicht erlaubt.</p>
+
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">1</div>
+          <div class="step-content">
+            <h3>Streaming-Qualität auf Maximum setzen</h3>
+            <p>Öffne die Plex-Einstellungen auf deinem Gerät und setze die Streaming-Qualität für Remote-/Internet-Streams auf die <strong>höchste Stufe</strong>.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <div class="step-content">
+            <h3>Untertitel auf "Auto" setzen</h3>
+            <p>Stelle sicher, dass die Untertitelverarbeitung auf <strong>"Auto"</strong> und nicht auf <strong>"Einbrennen"</strong> konfiguriert ist. Manche Untertitelformate erfordern ein Einbrennen, was automatisch eine Transkodierung startet.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <div class="step-content">
+            <h3>Gerätekompatibilität prüfen</h3>
+            <p>Stelle sicher, dass dein Abspielgerät 4K und HEVC (H.265) nativ unterstützt. Wenn das Gerät das Format nicht unterstützt, wird automatisch transkodiert, was bei 4K nicht erlaubt ist.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="info-box">
+        <strong>Gut zu wissen:</strong> Alle 4K-Inhalte sind bei uns auch in HD verfügbar. Wenn die 4K-Wiedergabe nicht funktioniert, spiele einfach die HD-Version ab.
+      </div>
+    </div>
+  </section>
+
+  <!-- EINSTELLUNGEN -->
+  <section class="help-section section" id="einstellungen">
+    <div class="container">
+      <div class="section-badge badge-green">Konfiguration</div>
+      <h2>Empfohlene Einstellungen</h2>
+      <p class="section-intro">Damit dein Server immer schnell und ordnungsgemäß funktioniert, sollten folgende Einstellungen konfiguriert werden.</p>
+
+      <div class="settings-group">
+        <h3>Plex Web -- Qualität</h3>
+        <div class="settings-list">
+          <div class="setting-item"><span class="setting-label">Qualität automatisch anpassen (beta)</span><span class="setting-value off">Aus</span></div>
+          <div class="setting-item"><span class="setting-label">Video-Qualität</span><span class="setting-value on">Maximum</span></div>
+          <div class="setting-item"><span class="setting-label">Kleinere Videos in Original-Qualität wiedergeben</span><span class="setting-value on">Ein</span></div>
+          <div class="setting-item"><span class="setting-label">Empfohlene Einstellungen verwenden</span><span class="setting-value on">Ein</span></div>
+        </div>
+      </div>
+
+      <div class="settings-group">
+        <h3>Wiedergabe</h3>
+        <div class="settings-list">
+          <div class="setting-item"><span class="setting-label">Direct Play</span><span class="setting-value on">Ein</span></div>
+          <div class="setting-item"><span class="setting-label">Direct Stream</span><span class="setting-value on">Ein</span></div>
+          <div class="setting-item"><span class="setting-label">Untertitel einbrennen</span><span class="setting-value">Nur grafische</span></div>
+          <div class="setting-item"><span class="setting-label">Kinotrailer vor dem Film</span><span class="setting-value off">Keine</span></div>
+        </div>
+      </div>
+
+      <div class="settings-group">
+        <h3>Sprache & Untertitel</h3>
+        <div class="settings-list">
+          <div class="setting-item"><span class="setting-label">Ton- & Untertitelspuren automatisch auswählen</span><span class="setting-value on">Ein</span></div>
+          <div class="setting-item"><span class="setting-label">Bevorzugte Ton-Sprache</span><span class="setting-value">Deutsch</span></div>
+          <div class="setting-item"><span class="setting-label">Bevorzugte Untertitel-Sprache</span><span class="setting-value">Deutsch</span></div>
+          <div class="setting-item"><span class="setting-label">Untertitel-Modus</span><span class="setting-value">Bei fremdsprachigem Ton</span></div>
+        </div>
+      </div>
+
+      <div class="settings-group">
+        <h3>Online Medienquellen (empfohlen: alles deaktivieren)</h3>
+        <div class="settings-list">
+          <div class="setting-item"><span class="setting-label">Live TV</span><span class="setting-value off">Deaktiviert</span></div>
+          <div class="setting-item"><span class="setting-label">Movies & TV</span><span class="setting-value off">Deaktiviert</span></div>
+          <div class="setting-item"><span class="setting-label">Music</span><span class="setting-value off">Deaktiviert</span></div>
+          <div class="setting-item"><span class="setting-label">Discover Medienquelle</span><span class="setting-value off">Deaktiviert</span></div>
+          <div class="setting-item"><span class="setting-label">"Anderswo anschauen" Suchergebnisse</span><span class="setting-value off">Deaktiviert</span></div>
+          <div class="setting-item"><span class="setting-label">Verfügbarkeit auf anderen Streamingdiensten</span><span class="setting-value off">Deaktiviert</span></div>
+          <div class="setting-item"><span class="setting-label">Aktivität von Freunden auf Detailseiten</span><span class="setting-value off">Deaktiviert</span></div>
+        </div>
+      </div>
+
+      <div class="settings-group">
+        <h3>Mediathek & Allgemein</h3>
+        <div class="settings-list">
+          <div class="setting-item"><span class="setting-label">Zu berücksichtigende Wochen für "Fortsetzen"</span><span class="setting-value">500</span></div>
+          <div class="setting-item"><span class="setting-label">Maximale Elemente im "Fortsetzen"-Hub</span><span class="setting-value">100</span></div>
+          <div class="setting-item"><span class="setting-label">Absturzberichte an Plex senden</span><span class="setting-value off">Aus</span></div>
+          <div class="setting-item"><span class="setting-label">Debug-Level</span><span class="setting-value off">Deaktiviert</span></div>
+        </div>
+      </div>
+
+      <div class="settings-group">
+        <h3>Wartung</h3>
+        <div class="settings-list">
+          <div class="setting-item"><span class="setting-label">Täglicher Neustart planen</span><span class="setting-value on">Empfohlen</span></div>
+        </div>
+        <p class="settings-note">Logge dich im Kronos Control Panel ein, wähle deinen Server und stelle unter <strong>Settings</strong> eine Uhrzeit für den täglichen Neustart ein, zu der du den Server unwahrscheinlich nutzt. Von Zeit zu Zeit empfohlen: <strong>"Pakete aufräumen"</strong> und <strong>"Datenbank optimieren"</strong> unter Verwalten &rarr; Fehlerbehebung.</p>
+      </div>
+
+      <div class="warning-box">
+        <strong>Hinweis:</strong> Mit diesen Einstellungen wird der bestmögliche Betrieb sichergestellt. Für abweichende Einstellungen wird kein Support geboten.
+      </div>
+    </div>
+  </section>
+
+  <!-- KONTO -->
+  <section class="help-section section" id="konto">
+    <div class="container">
+      <div class="section-badge badge-green">Einrichtung</div>
+      <h2>Konto einrichten</h2>
+      <p class="section-intro">Folge diesen Schritten, um dein Konto zu erstellen und den Server mit Plex zu verknüpfen.</p>
+
+      <h3 class="sub-heading">1. Bei Plex registrieren</h3>
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">1</div>
+          <div class="step-content">
+            <p>Öffne <a href="https://www.plex.tv/sign-up" target="_blank" rel="noopener">plex.tv/sign-up</a></p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <div class="step-content">
+            <p>Gib deine E-Mail-Adresse ein und wähle ein sicheres Passwort</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <div class="step-content">
+            <p>Klicke auf <strong>"Konto erstellen"</strong> und bestätige deine E-Mail (klicke auf "Verify Email" in der von Plex gesendeten E-Mail)</p>
+          </div>
+        </div>
+      </div>
+
+      <h3 class="sub-heading">2. Server anfragen</h3>
+      <p>Schreib uns einfach eine E-Mail an <a href="mailto:plex.hilfe24@gmail.com">plex.hilfe24@gmail.com</a> und teile uns mit, dass du einen Server möchtest. Wir klären dann alles Weitere direkt mit dir.</p>
+    </div>
+  </section>
+
+  <!-- MEDIATHEKEN -->
+  <section class="help-section section" id="mediatheken">
+    <div class="container">
+      <div class="section-badge badge-blue">Anleitung</div>
+      <h2>Mediatheken hinzufügen</h2>
+      <p class="section-intro">So fügst du neue Bibliotheken in Plex hinzu.</p>
+
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">1</div>
+          <div class="step-content">
+            <p>Starte die Plex Web App und gehe zu <strong>Einstellungen</strong></p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <div class="step-content">
+            <p>Stelle sicher, dass im Einstellungsmenü der richtige Plex Media Server ausgewählt ist</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <div class="step-content">
+            <p>Wähle im Abschnitt <strong>"Verwalten"</strong> den Punkt <strong>"Bibliotheken"</strong> aus</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">4</div>
+          <div class="step-content">
+            <p>Klicke auf <strong>"Mediathek hinzufügen"</strong>, wähle den Bibliothekstyp, benenne die Bibliothek und wähle die Sprache (empfohlen: Deutsch)</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">5</div>
+          <div class="step-content">
+            <p>Füge die Ordner mit den Mediendateien hinzu. Alle verfügbaren Pfade findest du in der <a href="/dienste#mediatheken">Mediatheken-Übersicht</a></p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">6</div>
+          <div class="step-content">
+            <p>Setze unter <strong>Erweiterte Optionen</strong>: "Land der Altersfreigaben" auf <strong>Deutschland</strong>. Für Filme: "Quelle für Wertungen" auf <strong>IMDb</strong>. Für Serien: "Reihenfolge Folgen" auf <strong>TheTVDB</strong>.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">7</div>
+          <div class="step-content">
+            <p>Klicke auf <strong>"Mediathek hinzufügen"</strong> und warte bis alle Daten eingelesen sind. Dieser Vorgang kann je nach Bibliothek einige Stunden dauern.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="info-box">
+        <strong>Tipp:</strong> Pfade der selben Kategorie können kombiniert werden. Zum Beispiel können "Filme" und "Filme-Archiv" zur selben Mediathek hinzugefügt werden.
+      </div>
+    </div>
+  </section>
+
+  <!-- DATENSCHUTZ -->
+  <section class="help-section section" id="datenschutz">
+    <div class="container">
+      <div class="section-badge badge-green">Datenschutz</div>
+      <h2>Datenschutz & Tracking einschränken</h2>
+      <p class="section-intro">So schränkst du die Datenerhebung durch Plex ein.</p>
+
+      <div class="settings-group">
+        <h3>Datenerhebung von Drittanbietern untersagen</h3>
+        <div class="steps compact">
+          <div class="step">
+            <div class="step-num">1</div>
+            <div class="step-content"><p>Öffne die Plex Web App und logge dich ein</p></div>
+          </div>
+          <div class="step">
+            <div class="step-num">2</div>
+            <div class="step-content"><p>Gehe zu den <strong>Datenschutzeinstellungen</strong></p></div>
+          </div>
+          <div class="step">
+            <div class="step-num">3</div>
+            <div class="step-content"><p>Wähle <strong>"Meine Werbungseinwilligung aktualisieren"</strong> und klicke auf <strong>"Ich stimme nicht zu"</strong></p></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="settings-group">
+        <h3>E-Mail-Werbung deaktivieren</h3>
+        <div class="steps compact">
+          <div class="step">
+            <div class="step-num">1</div>
+            <div class="step-content"><p>Öffne die E-Mail-Einstellungen in deinem Plex-Konto</p></div>
+          </div>
+          <div class="step">
+            <div class="step-num">2</div>
+            <div class="step-content"><p>Wähle <strong>"Unsubscribe from ALL"</strong> und speichere mit <strong>"Update Preference"</strong></p></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="settings-group">
+        <h3>Profil privat setzen</h3>
+        <div class="settings-list">
+          <div class="setting-item"><span class="setting-label">Mein Abspielverlauf</span><span class="setting-value">Privat</span></div>
+          <div class="setting-item"><span class="setting-label">Meine Merkliste</span><span class="setting-value">Privat</span></div>
+          <div class="setting-item"><span class="setting-label">Meine Bewertungen</span><span class="setting-value">Privat</span></div>
+          <div class="setting-item"><span class="setting-label">Meine Freunde</span><span class="setting-value">Privat</span></div>
+          <div class="setting-item"><span class="setting-label">Konto-Sichtbarkeit</span><span class="setting-value">Nur Freunde</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="help-cta">
+        <h2>Problem nicht gelöst?</h2>
+        <p>Kontaktiere uns direkt -- wir helfen dir gerne weiter.</p>
+        <div class="help-cta-actions">
+          <a href="mailto:plex.hilfe24@gmail.com" class="btn btn-primary">E-Mail schreiben</a>
+          <a href="/kontakt" class="btn btn-secondary">Kontaktformular</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .toc {
+    background: var(--color-bg-card);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-lg);
+    margin-bottom: var(--spacing-xl);
+  }
+
+  .toc-title {
+    font-size: 1rem;
+    margin-bottom: var(--spacing-md);
+    color: var(--color-text-secondary);
+  }
+
+  .toc ul {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-sm) var(--spacing-lg);
+  }
+
+  .toc a {
+    font-size: 0.9rem;
+    color: var(--color-accent-hover);
+  }
+
+  .toc a:hover {
+    color: var(--color-primary-hover);
+  }
+
+  .help-section {
+    border-bottom: 1px solid var(--color-border);
+    padding-bottom: var(--spacing-3xl);
+  }
+
+  .section-badge {
+    display: inline-block;
+    padding: 3px 12px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    margin-bottom: var(--spacing-md);
+    letter-spacing: 0.02em;
+  }
+
+  .badge-yellow { background: var(--color-warning-muted); color: var(--color-warning); }
+  .badge-red { background: var(--color-error-muted); color: var(--color-error); }
+  .badge-blue { background: var(--color-accent-muted); color: var(--color-accent-hover); }
+  .badge-green { background: var(--color-primary-muted); color: var(--color-primary-hover); }
+
+  .section-intro {
+    font-size: 1rem;
+    margin-bottom: var(--spacing-xl);
+    max-width: 700px;
+  }
+
+  .sub-heading {
+    font-size: 1.1rem;
+    margin-top: var(--spacing-xl);
+    margin-bottom: var(--spacing-md);
+    color: var(--color-text);
+  }
+
+  .steps {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-lg);
+  }
+
+  .steps.compact {
+    gap: var(--spacing-sm);
+  }
+
+  .step {
+    display: flex;
+    gap: var(--spacing-md);
+    align-items: flex-start;
+  }
+
+  .step-num {
+    width: 32px;
+    height: 32px;
+    min-width: 32px;
+    border-radius: 50%;
+    background: var(--color-bg-tertiary);
+    border: 1px solid var(--color-border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--color-text-secondary);
+  }
+
+  .step-content {
+    flex: 1;
+    padding-top: 4px;
+  }
+
+  .step-content h3 {
+    font-size: 1rem;
+    margin-bottom: var(--spacing-sm);
+  }
+
+  .step-content p {
+    font-size: 0.9rem;
+    margin-bottom: var(--spacing-sm);
+  }
+
+  .step-content p:last-child {
+    margin-bottom: 0;
+  }
+
+  .info-box {
+    background: var(--color-accent-muted);
+    border: 1px solid rgba(31, 111, 235, 0.3);
+    border-radius: var(--radius-md);
+    padding: var(--spacing-md);
+    font-size: 0.9rem;
+    color: var(--color-text-secondary);
+    margin-top: var(--spacing-md);
+  }
+
+  .info-box strong {
+    color: var(--color-accent-hover);
+  }
+
+  .warning-box {
+    background: var(--color-warning-muted);
+    border: 1px solid rgba(210, 153, 34, 0.3);
+    border-radius: var(--radius-md);
+    padding: var(--spacing-md);
+    font-size: 0.9rem;
+    color: var(--color-text-secondary);
+    margin-top: var(--spacing-md);
+  }
+
+  .warning-box strong {
+    color: var(--color-warning);
+  }
+
+  .settings-group {
+    margin-bottom: var(--spacing-xl);
+  }
+
+  .settings-group h3 {
+    font-size: 1rem;
+    margin-bottom: var(--spacing-md);
+    color: var(--color-text);
+  }
+
+  .settings-list {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+  }
+
+  .setting-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px var(--spacing-md);
+    background: var(--color-bg-card);
+    border-bottom: 1px solid var(--color-border);
+    font-size: 0.875rem;
+  }
+
+  .setting-item:last-child {
+    border-bottom: none;
+  }
+
+  .setting-label {
+    color: var(--color-text-secondary);
+  }
+
+  .setting-value {
+    font-weight: 500;
+    color: var(--color-text);
+  }
+
+  .setting-value.on {
+    color: var(--color-primary-hover);
+  }
+
+  .setting-value.off {
+    color: var(--color-text-muted);
+  }
+
+  .settings-note {
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+    margin-top: var(--spacing-md);
+    line-height: 1.6;
+  }
+
+  .help-cta {
+    text-align: center;
+    padding: var(--spacing-2xl);
+    background: var(--color-bg-card);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-xl);
+  }
+
+  .help-cta h2 {
+    margin-bottom: var(--spacing-sm);
+  }
+
+  .help-cta p {
+    margin-bottom: var(--spacing-lg);
+    font-size: 1rem;
+  }
+
+  .help-cta-actions {
+    display: flex;
+    gap: var(--spacing-md);
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  @media (max-width: 768px) {
+    .toc ul {
+      flex-direction: column;
+    }
+    .setting-item {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 4px;
+    }
+  }
+</style>

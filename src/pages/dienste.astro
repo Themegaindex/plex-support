@@ -1,0 +1,372 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const movieLibraries = [
+  { name: 'Filme', desc: 'Filme der letzten 20 Jahre' },
+  { name: 'Filme 4K', desc: 'Filme in Ultra HD' },
+  { name: 'Filme Archiv', desc: 'Filme älter als 20 Jahre' },
+  { name: 'Filme Anime', desc: 'Anime Filme' },
+  { name: 'Filme Kids', desc: 'Filme für Kinder geeignet' },
+  { name: 'Filme Dokumentationen', desc: 'Dokumentarfilme' },
+  { name: 'Filme Comedy', desc: 'Standup Comedy' },
+  { name: 'Filme Weihnachten', desc: 'Weihnachtsfilme' },
+  { name: 'Filme Klassiker', desc: 'Filme vor 1970' },
+  { name: 'Filme Original', desc: 'Filme in der Originalsprache' },
+  { name: 'Filme Sport', desc: 'Wrestling, Fights, etc.' },
+];
+
+const seriesLibraries = [
+  { name: 'Serien', desc: 'Serien der letzten 20 Jahre' },
+  { name: 'Serien 4K', desc: 'Serien in Ultra HD' },
+  { name: 'Serien Archiv', desc: 'Serien älter als 20 Jahre' },
+  { name: 'Serien Anime', desc: 'Anime Serien' },
+  { name: 'Serien Kids', desc: 'Serien für Kinder geeignet' },
+  { name: 'Serien Doku', desc: 'Dokumentationen' },
+  { name: 'Serien Reality', desc: 'Reality-Serien' },
+  { name: 'Serien Soaps', desc: 'Daily Soaps wie GZSZ' },
+  { name: 'Serien Talk Show', desc: 'Talk Shows' },
+  { name: 'Serien Sport', desc: 'Wrestling, Fights, etc.' },
+  { name: 'Serien Klassiker', desc: 'Serien vor 1970' },
+  { name: 'Serien Original', desc: 'Serien in der Originalsprache' },
+];
+
+const paymentMethods = [
+  { name: 'PayPal', desc: 'Schnelle und sichere Zahlung über PayPal.', icon: 'paypal' },
+  { name: 'Lastschrift', desc: 'Bequeme Abbuchung direkt von deinem Bankkonto.', icon: 'bank' },
+  { name: 'Überweisung', desc: 'Klassische Banküberweisung auf unser Konto.', icon: 'transfer' },
+];
+---
+
+<Layout title="Dienste - Plex Support" description="Übersicht aller Plex Support Dienste, verfügbare Mediatheken und Zahlungsmethoden.">
+  <div class="page-header">
+    <div class="container">
+      <h1>Unsere Dienste</h1>
+      <p>Entdecke unser umfangreiches Angebot an Filmen und Serien. Streame über Plex mit Zugang zu einer riesigen Mediathek.</p>
+    </div>
+  </div>
+
+  <section class="section">
+    <div class="container">
+      <div class="service-intro card">
+        <div class="service-intro-icon">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="5 3 19 12 5 21 5 3"/>
+          </svg>
+        </div>
+        <div>
+          <h2>Plex Streaming-Service</h2>
+          <p>Mit Plex Support erhältst du Zugang zu einem leistungsstarken Plex Media Server mit einer umfangreichen Bibliothek an Filmen und Serien. Streame auf all deinen Geräten -- vom Smartphone über den Laptop bis hin zum Smart TV.</p>
+          <div class="service-features">
+            <div class="feature-tag">HD & 4K Inhalte</div>
+            <div class="feature-tag">Alle Geräte</div>
+            <div class="feature-tag">Große Auswahl</div>
+            <div class="feature-tag">Deutsche Inhalte</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="mediatheken">
+    <div class="container">
+      <h2 class="section-heading">Verfügbare Mediatheken</h2>
+
+      <h3 class="category-title">Filme</h3>
+      <div class="library-grid">
+        {movieLibraries.map(lib => (
+          <div class="library-card">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="2" width="20" height="20" rx="2.18" ry="2.18"/>
+              <line x1="7" y1="2" x2="7" y2="22"/>
+              <line x1="17" y1="2" x2="17" y2="22"/>
+              <line x1="2" y1="12" x2="22" y2="12"/>
+              <line x1="2" y1="7" x2="7" y2="7"/>
+              <line x1="2" y1="17" x2="7" y2="17"/>
+              <line x1="17" y1="7" x2="22" y2="7"/>
+              <line x1="17" y1="17" x2="22" y2="17"/>
+            </svg>
+            <div>
+              <h4>{lib.name}</h4>
+              <p>{lib.desc}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <h3 class="category-title">Serien</h3>
+      <div class="library-grid">
+        {seriesLibraries.map(lib => (
+          <div class="library-card">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="7" width="20" height="15" rx="2" ry="2"/>
+              <polyline points="17 2 12 7 7 2"/>
+            </svg>
+            <div>
+              <h4>{lib.name}</h4>
+              <p>{lib.desc}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="zahlung">
+    <div class="container">
+      <h2 class="section-heading">Zahlungsmethoden</h2>
+      <div class="payment-grid">
+        {paymentMethods.map(method => (
+          <div class="payment-card card">
+            <div class="payment-icon">
+              {method.icon === 'paypal' && (
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M7 11l4-8h5a4 4 0 0 1 0 8h-3l-1 4H7"/>
+                  <path d="M5 19l4-8h5a4 4 0 0 1 0 8h-3l-1 4H5"/>
+                </svg>
+              )}
+              {method.icon === 'bank' && (
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="12" y1="1" x2="12" y2="23"/>
+                  <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+                </svg>
+              )}
+              {method.icon === 'transfer' && (
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="12" y1="1" x2="12" y2="23"/>
+                  <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+                </svg>
+              )}
+            </div>
+            <h3>{method.name}</h3>
+            <p>{method.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="support">
+    <div class="container">
+      <h2 class="section-heading">Supportumfang</h2>
+      <div class="support-grid">
+        <div class="support-card card">
+          <h3 class="support-yes">Was wir unterstützen</h3>
+          <ul>
+            <li>Die Anwendung kann nicht gestartet werden</li>
+            <li>Die Anwendung stürzt aus unbekannten Gründen ab</li>
+            <li>Servicebezogene Probleme und Fragen</li>
+            <li>Probleme beim Claimen des Servers</li>
+            <li>Anfragen zum Zurücksetzen des Passworts</li>
+            <li>Allgemeine Fragen zum Service</li>
+            <li>Hardwarebezogene Probleme</li>
+          </ul>
+        </div>
+        <div class="support-card card">
+          <h3 class="support-no">Was nicht unterstützt wird</h3>
+          <ul>
+            <li>Einrichtung und Konfiguration außerhalb der hier gelisteten Anleitungen</li>
+            <li>Installation und Einrichtung nicht unterstützter Apps</li>
+            <li>Erweiterung der App durch zusätzliche Skripte oder Addons</li>
+            <li>Beratung in jeglicher Form oder Unterstützung zur Kommerzialisierung</li>
+          </ul>
+        </div>
+      </div>
+      <p class="support-note">Sollten sich hieraus Fragen ergeben, kannst du dich gerne per <a href="/kontakt">Kontaktformular</a> oder E-Mail an <a href="mailto:plex.hilfe24@gmail.com">plex.hilfe24@gmail.com</a> an uns wenden.</p>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .service-intro {
+    display: flex;
+    gap: var(--spacing-xl);
+    align-items: flex-start;
+    padding: var(--spacing-xl);
+  }
+
+  .service-intro-icon {
+    width: 64px;
+    height: 64px;
+    min-width: 64px;
+    border-radius: var(--radius-lg);
+    background: var(--color-primary-muted);
+    color: var(--color-primary-hover);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .service-intro h2 {
+    margin-bottom: var(--spacing-sm);
+  }
+
+  .service-intro p {
+    margin-bottom: var(--spacing-lg);
+  }
+
+  .service-features {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-sm);
+  }
+
+  .feature-tag {
+    padding: 4px 12px;
+    background: var(--color-bg);
+    border: 1px solid var(--color-border);
+    border-radius: 20px;
+    font-size: 0.8rem;
+    color: var(--color-text-secondary);
+  }
+
+  .section-heading {
+    margin-bottom: var(--spacing-xl);
+  }
+
+  .category-title {
+    margin-bottom: var(--spacing-md);
+    color: var(--color-text-secondary);
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .library-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-xl);
+  }
+
+  .library-card {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--spacing-md);
+    padding: var(--spacing-md);
+    background: var(--color-bg-card);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    transition: border-color var(--transition-fast);
+    color: var(--color-text-muted);
+  }
+
+  .library-card:hover {
+    border-color: var(--color-border-light);
+  }
+
+  .library-card svg {
+    margin-top: 2px;
+    flex-shrink: 0;
+  }
+
+  .library-card h4 {
+    font-size: 0.9rem;
+    margin-bottom: 2px;
+  }
+
+  .library-card p {
+    font-size: 0.8rem;
+    color: var(--color-text-muted);
+  }
+
+  .payment-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--spacing-lg);
+  }
+
+  .payment-card {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-md);
+  }
+
+  .payment-icon {
+    width: 56px;
+    height: 56px;
+    border-radius: var(--radius-lg);
+    background: var(--color-accent-muted);
+    color: var(--color-accent-hover);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .payment-card h3 {
+    font-size: 1.05rem;
+  }
+
+  .payment-card p {
+    font-size: 0.875rem;
+  }
+
+  .support-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-lg);
+    margin-bottom: var(--spacing-lg);
+  }
+
+  .support-card ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+  }
+
+  .support-card li {
+    font-size: 0.9rem;
+    color: var(--color-text-secondary);
+    padding-left: var(--spacing-lg);
+    position: relative;
+  }
+
+  .support-card li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 7px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+  }
+
+  .support-yes {
+    color: var(--color-primary-hover);
+    margin-bottom: var(--spacing-md);
+    font-size: 1rem;
+  }
+
+  .support-card:first-child li::before {
+    background: var(--color-primary);
+  }
+
+  .support-no {
+    color: var(--color-error);
+    margin-bottom: var(--spacing-md);
+    font-size: 1rem;
+  }
+
+  .support-card:last-child li::before {
+    background: var(--color-error);
+  }
+
+  .support-note {
+    text-align: center;
+    font-size: 0.9rem;
+  }
+
+  @media (max-width: 768px) {
+    .service-intro {
+      flex-direction: column;
+    }
+    .payment-grid {
+      grid-template-columns: 1fr;
+    }
+    .support-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

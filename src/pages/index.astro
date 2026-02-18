@@ -1,0 +1,213 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Plex Support - Hilfe & Dokumentation">
+  <section class="hero">
+    <div class="container">
+      <div class="hero-content">
+        <div class="hero-badge">Hilfe & Dokumentation</div>
+        <h1>Willkommen bei Plex Support</h1>
+        <p>Hier findest du Anleitungen, Antworten auf die häufigsten Fragen und Hilfe bei Problemen mit deinem Streaming-Service.</p>
+        <div class="hero-actions">
+          <a href="/faq" class="btn btn-primary">Häufige Fragen</a>
+          <a href="/hilfe" class="btn btn-secondary">Hilfe & Fehlerbehebung</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="quick-access section">
+    <div class="container">
+      <h2 class="section-title">Schnellzugriff</h2>
+      <div class="cards-grid">
+        <a href="/faq" class="quick-card">
+          <div class="quick-card-icon icon-blue">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"/>
+              <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/>
+              <line x1="12" y1="17" x2="12.01" y2="17"/>
+            </svg>
+          </div>
+          <h3>FAQ</h3>
+          <p>Antworten auf die häufigsten Fragen rund um deinen Streaming-Service.</p>
+        </a>
+
+        <a href="/hilfe#streaming" class="quick-card">
+          <div class="quick-card-icon icon-yellow">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+            </svg>
+          </div>
+          <h3>Streaming-Probleme</h3>
+          <p>Buffering, Verbindungsfehler und Wiedergabe-Probleme lösen.</p>
+        </a>
+
+        <a href="/hilfe#konto" class="quick-card">
+          <div class="quick-card-icon icon-green">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+              <circle cx="12" cy="7" r="4"/>
+            </svg>
+          </div>
+          <h3>Konto einrichten</h3>
+          <p>Schritt-für-Schritt-Anleitung zur Konto-Erstellung und Server-Einrichtung.</p>
+        </a>
+
+        <a href="/kontakt" class="quick-card">
+          <div class="quick-card-icon icon-red">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="4" width="20" height="16" rx="2"/>
+              <path d="M22 4L12 13L2 4"/>
+            </svg>
+          </div>
+          <h3>Kontakt</h3>
+          <p>Erreiche unser Support-Team per E-Mail oder Kontaktformular.</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="info-bar section">
+    <div class="container">
+      <div class="info-card">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="2" y="4" width="20" height="16" rx="2"/>
+          <path d="M22 4L12 13L2 4"/>
+        </svg>
+        <div>
+          <p class="info-label">Direkte Hilfe per E-Mail</p>
+          <a href="mailto:plex.hilfe24@gmail.com" class="info-email">plex.hilfe24@gmail.com</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .hero {
+    padding: var(--spacing-3xl) 0;
+    background: linear-gradient(180deg, var(--color-bg-secondary) 0%, var(--color-bg) 100%);
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .hero-content {
+    max-width: 640px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .hero-badge {
+    display: inline-block;
+    padding: 4px 14px;
+    background: var(--color-primary-muted);
+    color: var(--color-primary-hover);
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    margin-bottom: var(--spacing-lg);
+    letter-spacing: 0.02em;
+  }
+
+  .hero h1 { margin-bottom: var(--spacing-md); }
+
+  .hero p {
+    font-size: 1.1rem;
+    margin-bottom: var(--spacing-xl);
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: var(--spacing-md);
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .section-title {
+    text-align: center;
+    margin-bottom: var(--spacing-xl);
+  }
+
+  .cards-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--spacing-lg);
+  }
+
+  .quick-card {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+    padding: var(--spacing-lg);
+    background: var(--color-bg-card);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    text-decoration: none;
+    transition: all var(--transition-normal);
+  }
+
+  .quick-card:hover {
+    border-color: var(--color-border-light);
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-lg);
+  }
+
+  .quick-card-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: var(--radius-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .icon-blue { background: var(--color-accent-muted); color: var(--color-accent-hover); }
+  .icon-yellow { background: var(--color-warning-muted); color: var(--color-warning); }
+  .icon-green { background: var(--color-primary-muted); color: var(--color-primary-hover); }
+  .icon-red { background: var(--color-error-muted); color: var(--color-error); }
+
+  .quick-card h3 {
+    font-size: 1.05rem;
+    color: var(--color-text);
+  }
+
+  .quick-card p {
+    font-size: 0.875rem;
+    color: var(--color-text-muted);
+    line-height: 1.5;
+  }
+
+  .info-card {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+    padding: var(--spacing-lg) var(--spacing-xl);
+    background: var(--color-bg-card);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    color: var(--color-text-muted);
+    max-width: 480px;
+    margin: 0 auto;
+  }
+
+  .info-label {
+    font-size: 0.8rem;
+    color: var(--color-text-muted);
+    margin-bottom: 2px;
+  }
+
+  .info-email {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--color-primary-hover);
+  }
+
+  @media (max-width: 900px) {
+    .cards-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  @media (max-width: 480px) {
+    .cards-grid { grid-template-columns: 1fr; }
+    .hero-actions { flex-direction: column; align-items: center; }
+  }
+</style>

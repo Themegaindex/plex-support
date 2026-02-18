@@ -1,0 +1,430 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const faqItems = [
+  {
+    q: 'Die Wiedergabe stockt / buffert. Was kann ich tun?',
+    a: `<p>Wenn die Wiedergabe stockt, prüfe folgende Punkte:</p>
+<ul>
+<li><strong>Internetgeschwindigkeit prüfen:</strong> Für HD-Inhalte werden mindestens 30 Mbit/s empfohlen. Für Ultra-HD (4K) mindestens 100 Mbit/s. Prüfe deine Geschwindigkeit z.B. über <a href="https://www.speedtest.net" target="_blank" rel="noopener">speedtest.net</a>.</li>
+<li><strong>WLAN-Verbindung optimieren:</strong> Gehe näher an deinen Router oder nutze am besten ein Ethernet-Kabel (LAN) für eine stabile Verbindung.</li>
+<li><strong>Störquellen vermeiden:</strong> Andere elektronische Geräte oder Mikrowellen können das WLAN-Signal stören.</li>
+<li><strong>Bandbreite priorisieren:</strong> Stelle in deinen Router-Einstellungen sicher, dass dein Streaming-Gerät Vorrang hat.</li>
+<li><strong>Peering-Probleme:</strong> Manchmal liegt es an der Verbindung zwischen Internetanbietern (Peering). Ein VPN kann hier helfen, indem es alternative Routen für den Datenverkehr nutzt.</li>
+</ul>
+<p>Mehr dazu findest du unter <a href="/hilfe#streaming">Hilfe &rarr; Streaming-Probleme</a>.</p>`,
+    category: 'streaming',
+  },
+  {
+    q: 'Netflix funktioniert aber ohne Probleme?!',
+    a: `<p>Dienste wie Netflix verfügen über eigene Rechenzentren und zehntausende Server weltweit mit jeweils über 100 GBit Netzwerkanbindung und Vereinbarungen mit Internetanbietern zur Priorisierung des Datenverkehrs.</p>
+<p>Außerdem konvertiert Netflix jeden Titel in dutzende Versionen (von 256 kbps bis 50+ Mbps) und wechselt nahtlos zwischen den Versionen, wenn Bandbreitenschwankungen auftreten.</p>
+<p>Plex unterstützt diesen dynamischen Dateiwechsel nicht. Wir geben unser Bestes, können aber mit der Infrastruktur kommerzieller Großkonzerne nicht konkurrieren.</p>`,
+    category: 'streaming',
+  },
+  {
+    q: 'Was bedeutet Transcoding?',
+    a: `<p>Transcoding ist die Umwandlung eines Video- oder Audioformats in ein anderes Format, um es mit verschiedenen Geräten kompatibel zu machen. Der Prozess erfolgt automatisch und in Echtzeit während der Wiedergabe.</p>
+<p><strong>Nachteile:</strong> Es kann zu einem Qualitätsverlust kommen und erfordert zusätzliche Rechenleistung vom Server.</p>
+<p><strong>Empfehlung:</strong> Spiele Videos möglichst in der Originalqualität ab (Direct Play), um die beste Bild- und Tonqualität zu erhalten und den Server zu entlasten.</p>`,
+    category: 'wiedergabe',
+  },
+  {
+    q: 'Ist Transcoding erlaubt?',
+    a: `<p>Ja, Transcoding ist grundsätzlich erlaubt. <strong>Ausnahme:</strong> Transcoding von 4K-Inhalten ist nicht erlaubt. Das System wird den Stream automatisch abbrechen, wenn 4K-Inhalte transkodiert werden sollen.</p>
+<p>Stelle sicher, dass deine Streaming-Qualität auf Maximum steht, damit 4K-Inhalte per Direct Play abgespielt werden.</p>`,
+    category: 'wiedergabe',
+  },
+  {
+    q: 'Fehler: "Der Transcoder wurde aufgrund eines Fehlers beendet"',
+    a: `<p>Dieser Fehler tritt auf, wenn versucht wird, 4K-Inhalte zu transkodieren. Das Transkodieren von 4K-Inhalten wird nicht unterstützt.</p>
+<p><strong>Lösung:</strong></p>
+<ul>
+<li>Setze die Streaming-Qualität auf die höchste Einstellung (Maximum)</li>
+<li>Stelle sicher, dass die Untertitelverarbeitung auf "Auto" und nicht auf "Einbrennen" konfiguriert ist</li>
+<li>Deaktiviere HDMI-Passthrough für Audio nicht, da dies eine Audio-Transkodierung auslösen kann</li>
+</ul>
+<p>Alle 4K-Inhalte sind auch in HD verfügbar. Wenn 4K nicht per Direct Play funktioniert, spiele stattdessen die HD-Version ab.</p>`,
+    category: 'fehler',
+  },
+  {
+    q: 'Fehler: "Dieser Server ist nicht leistungsfähig genug"',
+    a: `<p>Diese Meldung erscheint, wenn versucht wird, Inhalte zu transkodieren, die nicht für Transcoding vorgesehen sind (z.B. 4K/HEVC).</p>
+<p><strong>Lösung:</strong> Derzeit können nur 1080p-Inhalte transkodiert werden. Bei 4K-Inhalten ist dies nicht erlaubt. Setze die Streaming-Qualität auf Maximum, um Direct Play zu aktivieren.</p>`,
+    category: 'fehler',
+  },
+  {
+    q: 'Kann ich Inhalte herunterladen?',
+    a: `<p>Bei den Appbox-Tarifen dürfen Inhalte heruntergeladen werden. Missbrauch führt zum permanenten Ausschluss.</p>`,
+    category: 'allgemein',
+  },
+  {
+    q: 'Warum wird mein Request nicht hinzugefügt?',
+    a: `<p>Dafür gibt es mehrere mögliche Gründe:</p>
+<ul>
+<li>Der Titel wurde noch nicht veröffentlicht oder existiert noch nicht bei unseren Quellen</li>
+<li>Der Titel ist so selten, dass er mit unseren Tools nicht gefunden werden kann (z.B. sehr altes oder nicht in Deutschland veröffentlichtes Material)</li>
+<li>Wir haben besondere Qualitätsansprüche: Aufnahmen aus dem Kino (Cam-Rips), egal ob Video oder Ton, werden nicht akzeptiert</li>
+</ul>`,
+    category: 'allgemein',
+  },
+  {
+    q: 'Titel XY ist laut Request Lounge verfügbar, ich sehe ihn aber nicht',
+    a: `<p>Aktualisiere als erstes deine Mediathek oder warte den automatischen Scan ab, der alle 6 Stunden durchgeführt wird.</p>
+<p>Prüfe außerdem, ob alle Mediathek-Pfade hinzugefügt wurden. Siehe dazu die <a href="/hilfe#mediatheken">Anleitung zum Hinzufügen von Mediatheken</a>.</p>`,
+    category: 'allgemein',
+  },
+  {
+    q: 'Es gibt Titel in der Kids-Bibliothek, die nicht für Kinder geeignet sind',
+    a: `<p>Um in die Kids-Bibliothek aufgenommen zu werden, müssen die Titel die Altersfreigabe FSK-6 oder niedriger haben. Wenn dir etwas auffällt, das dort definitiv nicht hingehört, lass es uns bitte wissen.</p>
+<p>Umgekehrt gilt das gleiche: Wenn du einen Titel entdeckst, der eher in die Kids-Kategorie gehört, gib uns auch Bescheid.</p>`,
+    category: 'allgemein',
+  },
+  {
+    q: 'Darf das Feature "Intros/Abspann überspringen" aktiviert werden?',
+    a: `<p><strong>Nein.</strong> Die dafür benötigte Analyse der Inhalte verbraucht viel CPU und Bandbreite. Die hohe Auslastung beeinträchtigt auch andere Nutzer auf dem selben Hostsystem.</p>
+<p>Ein initialer Scan aller Inhalte würde mehrere Monate andauern. Wir würden so ein nützliches Feature natürlich nicht vorenthalten, wenn es technisch machbar wäre!</p>`,
+    category: 'allgemein',
+  },
+  {
+    q: 'Cover und Beschreibungen werden nicht richtig angezeigt',
+    a: `<p>Dazu müssen die Metadaten neu eingelesen werden (nicht die Mediathek!):</p>
+<ol>
+<li>Öffne die Plex Web-App und logge dich ein</li>
+<li>Gehe zu <strong>Verwalten &rarr; Mediatheken</strong></li>
+<li>Klicke bei der betreffenden Mediathek auf die <strong>3 Punkte</strong></li>
+<li>Wähle <strong>"Alle Metadaten aktualisieren"</strong></li>
+</ol>
+<p><strong>Hinweis:</strong> Dieser Vorgang kann einige Stunden dauern und sollte nur wenn nötig durchgeführt werden. Du kannst auch nur einzelne Titel aktualisieren, indem du beim gewünschten Titel auf die 3 Punkte klickst.</p>`,
+    category: 'wiedergabe',
+  },
+  {
+    q: 'Wie installiere ich ein Plex Media Server Update?',
+    a: `<p>Wenn ein Update verfügbar ist, wird es in plex.tv unter <strong>Einstellungen &rarr; Allgemein</strong> angezeigt.</p>
+<p>Um das Update zu installieren, gehe in das Dashboard und starte den Server neu. Nach dem Neustart wird das Update binnen weniger Minuten automatisch installiert.</p>`,
+    category: 'allgemein',
+  },
+  {
+    q: 'Wie kann ich Bibliotheken hinzufügen oder entfernen?',
+    a: `<p>Eine detaillierte Anleitung findest du unter <a href="/hilfe#mediatheken">Hilfe &rarr; Mediatheken hinzufügen</a>.</p>`,
+    category: 'allgemein',
+  },
+  {
+    q: 'Wie kann ich einen Film oder eine Serie anfragen?',
+    a: `<p>Schreib uns einfach eine E-Mail an <a href="mailto:plex.hilfe24@gmail.com">plex.hilfe24@gmail.com</a> — wir kümmern uns darum. Je nach Aufwand können in seltenen Fällen minimale Gebühren anfallen, aber das ist in der Regel nicht der Rede wert.</p>`,
+    category: 'allgemein',
+  },
+];
+
+const categories = [
+  { id: 'alle', label: 'Alle' },
+  { id: 'streaming', label: 'Streaming' },
+  { id: 'wiedergabe', label: 'Wiedergabe' },
+  { id: 'fehler', label: 'Fehlermeldungen' },
+  { id: 'allgemein', label: 'Allgemein' },
+];
+---
+
+<Layout title="FAQ - Plex Support" description="Häufig gestellte Fragen und Antworten rund um deinen Plex Support Streaming-Service.">
+  <div class="page-header">
+    <div class="container">
+      <h1>Häufig gestellte Fragen</h1>
+      <p>Finde hier Antworten auf die gängigsten Fragen. Nutze die Suche oder filtere nach Kategorie.</p>
+    </div>
+  </div>
+
+  <section class="section">
+    <div class="container">
+      <div class="faq-controls">
+        <div class="search-wrapper">
+          <svg class="search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"/>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+          </svg>
+          <input type="text" id="faq-search" placeholder="Frage suchen..." aria-label="FAQ durchsuchen" />
+        </div>
+        <div class="filter-tabs" role="tablist" aria-label="FAQ Kategorien">
+          {categories.map(cat => (
+            <button
+              class:list={['filter-tab', { active: cat.id === 'alle' }]}
+              data-category={cat.id}
+              role="tab"
+              aria-selected={cat.id === 'alle' ? 'true' : 'false'}
+            >
+              {cat.label}
+            </button>
+          ))}
+        </div>
+      </div>
+
+      <div class="faq-list" id="faq-list">
+        {faqItems.map((item, i) => (
+          <div class="faq-item" data-category={item.category}>
+            <button class="faq-question" aria-expanded="false" aria-controls={`faq-answer-${i}`}>
+              <span>{item.q}</span>
+              <svg class="faq-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"/>
+              </svg>
+            </button>
+            <div class="faq-answer" id={`faq-answer-${i}`} role="region">
+              <div class="faq-answer-inner" set:html={item.a} />
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <p class="faq-empty" id="faq-empty" style="display:none;">Keine Ergebnisse gefunden. Versuche eine andere Suche oder <a href="/kontakt">kontaktiere uns</a>.</p>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .faq-controls {
+    margin-bottom: var(--spacing-xl);
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+  }
+
+  .search-wrapper {
+    position: relative;
+    max-width: 480px;
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  .search-icon {
+    position: absolute;
+    left: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--color-text-muted);
+    pointer-events: none;
+  }
+
+  #faq-search {
+    width: 100%;
+    padding: 12px 16px 12px 44px;
+    background: var(--color-bg-input);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    color: var(--color-text);
+    font-family: var(--font-sans);
+    font-size: 0.95rem;
+    outline: none;
+    transition: border-color var(--transition-fast);
+  }
+
+  #faq-search::placeholder {
+    color: var(--color-text-muted);
+  }
+
+  #faq-search:focus {
+    border-color: var(--color-accent-hover);
+  }
+
+  .filter-tabs {
+    display: flex;
+    gap: var(--spacing-sm);
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .filter-tab {
+    padding: 6px 16px;
+    background: var(--color-bg-tertiary);
+    border: 1px solid var(--color-border);
+    border-radius: 20px;
+    font-family: var(--font-sans);
+    font-size: 0.85rem;
+    color: var(--color-text-secondary);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+  }
+
+  .filter-tab:hover {
+    border-color: var(--color-border-light);
+    color: var(--color-text);
+  }
+
+  .filter-tab.active {
+    background: var(--color-primary-muted);
+    border-color: var(--color-primary);
+    color: var(--color-primary-hover);
+  }
+
+  .faq-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+  }
+
+  .faq-item {
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    transition: border-color var(--transition-fast);
+  }
+
+  .faq-item:hover {
+    border-color: var(--color-border-light);
+  }
+
+  .faq-item.open {
+    border-color: var(--color-border-light);
+  }
+
+  .faq-question {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--spacing-md);
+    padding: var(--spacing-md) var(--spacing-lg);
+    background: var(--color-bg-card);
+    border: none;
+    color: var(--color-text);
+    font-family: var(--font-sans);
+    font-size: 0.95rem;
+    font-weight: 500;
+    text-align: left;
+    cursor: pointer;
+    transition: background var(--transition-fast);
+  }
+
+  .faq-question:hover {
+    background: var(--color-bg-card-hover);
+  }
+
+  .faq-chevron {
+    flex-shrink: 0;
+    color: var(--color-text-muted);
+    transition: transform var(--transition-normal);
+  }
+
+  .faq-item.open .faq-chevron {
+    transform: rotate(180deg);
+  }
+
+  .faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height var(--transition-slow);
+  }
+
+  .faq-answer-inner {
+    padding: 0 var(--spacing-lg) var(--spacing-lg);
+  }
+
+  .faq-answer-inner :global(p) {
+    font-size: 0.9rem;
+    margin-bottom: var(--spacing-sm);
+    color: var(--color-text-secondary);
+  }
+
+  .faq-answer-inner :global(p:last-child) {
+    margin-bottom: 0;
+  }
+
+  .faq-answer-inner :global(ul),
+  .faq-answer-inner :global(ol) {
+    padding-left: var(--spacing-lg);
+    margin-bottom: var(--spacing-sm);
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .faq-answer-inner :global(li) {
+    font-size: 0.9rem;
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+  }
+
+  .faq-answer-inner :global(strong) {
+    color: var(--color-text);
+  }
+
+  .faq-answer-inner :global(a) {
+    color: var(--color-accent-hover);
+  }
+
+  .faq-empty {
+    text-align: center;
+    padding: var(--spacing-xl);
+    color: var(--color-text-muted);
+    font-size: 0.95rem;
+  }
+
+  .faq-item.hidden {
+    display: none;
+  }
+</style>
+
+<script>
+  const searchInput = document.getElementById('faq-search') as HTMLInputElement;
+  const faqList = document.getElementById('faq-list');
+  const faqItems = document.querySelectorAll('.faq-item');
+  const filterTabs = document.querySelectorAll('.filter-tab');
+  const emptyMsg = document.getElementById('faq-empty');
+
+  let activeCategory = 'alle';
+
+  filterTabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      filterTabs.forEach(t => {
+        t.classList.remove('active');
+        t.setAttribute('aria-selected', 'false');
+      });
+      tab.classList.add('active');
+      tab.setAttribute('aria-selected', 'true');
+      activeCategory = (tab as HTMLElement).dataset.category || 'alle';
+      filterFAQ();
+    });
+  });
+
+  searchInput?.addEventListener('input', () => filterFAQ());
+
+  function filterFAQ() {
+    const query = searchInput?.value.toLowerCase().trim() || '';
+    let visibleCount = 0;
+
+    faqItems.forEach(item => {
+      const el = item as HTMLElement;
+      const cat = el.dataset.category || '';
+      const text = el.textContent?.toLowerCase() || '';
+      const matchesCategory = activeCategory === 'alle' || cat === activeCategory;
+      const matchesSearch = !query || text.includes(query);
+
+      if (matchesCategory && matchesSearch) {
+        el.classList.remove('hidden');
+        visibleCount++;
+      } else {
+        el.classList.add('hidden');
+      }
+    });
+
+    if (emptyMsg) {
+      emptyMsg.style.display = visibleCount === 0 ? 'block' : 'none';
+    }
+  }
+
+  document.querySelectorAll('.faq-question').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const item = btn.closest('.faq-item');
+      const answer = item?.querySelector('.faq-answer') as HTMLElement;
+      const inner = answer?.querySelector('.faq-answer-inner') as HTMLElement;
+      const isOpen = item?.classList.contains('open');
+
+      if (isOpen) {
+        answer.style.maxHeight = '0';
+        item?.classList.remove('open');
+        btn.setAttribute('aria-expanded', 'false');
+      } else {
+        answer.style.maxHeight = inner.scrollHeight + 'px';
+        item?.classList.add('open');
+        btn.setAttribute('aria-expanded', 'true');
+      }
+    });
+  });
+</script>
