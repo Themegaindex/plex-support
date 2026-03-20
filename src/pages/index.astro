@@ -5,14 +5,35 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 
 <Layout title="Plex Support - Hilfe & Dokumentation">
   <section class="hero">
+    <div class="hero-bg">
+      <div class="hero-orb hero-orb-1"></div>
+      <div class="hero-orb hero-orb-2"></div>
+      <div class="hero-orb hero-orb-3"></div>
+      <div class="hero-grid-pattern"></div>
+    </div>
     <div class="container">
       <div class="hero-content">
-        <div class="hero-badge">Hilfe & Dokumentation</div>
-        <h1>Willkommen bei Plex Support</h1>
+        <div class="hero-badge">
+          <span class="hero-badge-dot"></span>
+          Hilfe & Dokumentation
+        </div>
+        <h1>Willkommen bei<br/><span class="gradient-text">Plex Support</span></h1>
         <p>Hier findest du Anleitungen, Antworten auf die häufigsten Fragen und Hilfe bei Problemen mit deinem Streaming-Service.</p>
         <div class="hero-actions">
-          <a href={`${base}/faq`} class="btn btn-primary">Häufige Fragen</a>
-          <a href={`${base}/hilfe`} class="btn btn-secondary">Hilfe & Fehlerbehebung</a>
+          <a href={`${base}/faq`} class="btn btn-primary btn-glow">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"/>
+              <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/>
+              <line x1="12" y1="17" x2="12.01" y2="17"/>
+            </svg>
+            Häufige Fragen
+          </a>
+          <a href={`${base}/hilfe`} class="btn btn-secondary">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
+            </svg>
+            Hilfe & Fehlerbehebung
+          </a>
         </div>
       </div>
     </div>
@@ -21,6 +42,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
   <section class="quick-access section">
     <div class="container">
       <h2 class="section-title">Schnellzugriff</h2>
+      <p class="section-subtitle">Wähle einen Bereich, um direkt loszulegen.</p>
       <div class="cards-grid">
         <a href={`${base}/faq`} class="quick-card">
           <div class="quick-card-icon icon-blue">
@@ -32,6 +54,12 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
           </div>
           <h3>FAQ</h3>
           <p>Antworten auf die häufigsten Fragen rund um deinen Streaming-Service.</p>
+          <span class="card-arrow">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="5" y1="12" x2="19" y2="12"/>
+              <polyline points="12 5 19 12 12 19"/>
+            </svg>
+          </span>
         </a>
 
         <a href={`${base}/hilfe#streaming`} class="quick-card">
@@ -42,6 +70,12 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
           </div>
           <h3>Streaming-Probleme</h3>
           <p>Buffering, Verbindungsfehler und Wiedergabe-Probleme lösen.</p>
+          <span class="card-arrow">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="5" y1="12" x2="19" y2="12"/>
+              <polyline points="12 5 19 12 12 19"/>
+            </svg>
+          </span>
         </a>
 
         <a href={`${base}/hilfe#konto`} class="quick-card">
@@ -53,6 +87,12 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
           </div>
           <h3>Konto einrichten</h3>
           <p>Schritt-für-Schritt-Anleitung zur Konto-Erstellung und Server-Einrichtung.</p>
+          <span class="card-arrow">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="5" y1="12" x2="19" y2="12"/>
+              <polyline points="12 5 19 12 12 19"/>
+            </svg>
+          </span>
         </a>
 
         <a href={`${base}/kontakt`} class="quick-card">
@@ -64,6 +104,12 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
           </div>
           <h3>Kontakt</h3>
           <p>Erreiche unser Support-Team per E-Mail oder Kontaktformular.</p>
+          <span class="card-arrow">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="5" y1="12" x2="19" y2="12"/>
+              <polyline points="12 5 19 12 12 19"/>
+            </svg>
+          </span>
         </a>
       </div>
     </div>
@@ -72,10 +118,12 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
   <section class="info-bar section">
     <div class="container">
       <div class="info-card">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <rect x="2" y="4" width="20" height="16" rx="2"/>
-          <path d="M22 4L12 13L2 4"/>
-        </svg>
+        <div class="info-card-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="4" width="20" height="16" rx="2"/>
+            <path d="M22 4L12 13L2 4"/>
+          </svg>
+        </div>
         <div>
           <p class="info-label">Direkte Hilfe per E-Mail</p>
           <a href="mailto:plex.hilfe24@gmail.com" class="info-email">plex.hilfe24@gmail.com</a>
@@ -86,35 +134,116 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 </Layout>
 
 <style>
+  /* ========== HERO ========== */
   .hero {
-    padding: var(--spacing-3xl) 0;
-    background: linear-gradient(180deg, var(--color-bg-secondary) 0%, var(--color-bg) 100%);
-    border-bottom: 1px solid var(--color-border);
+    padding: var(--spacing-4xl) 0 var(--spacing-3xl);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+  }
+
+  .hero-orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    opacity: 0.4;
+  }
+
+  .hero-orb-1 {
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(34, 197, 94, 0.2) 0%, transparent 70%);
+    top: -150px;
+    left: -100px;
+    animation: float 20s ease-in-out infinite;
+  }
+
+  .hero-orb-2 {
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(59, 130, 246, 0.15) 0%, transparent 70%);
+    top: -50px;
+    right: -100px;
+    animation: float-reverse 25s ease-in-out infinite;
+  }
+
+  .hero-orb-3 {
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, rgba(34, 197, 94, 0.1) 0%, transparent 70%);
+    bottom: -100px;
+    left: 40%;
+    animation: float 18s ease-in-out infinite;
+  }
+
+  .hero-grid-pattern {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+    background-size: 60px 60px;
+    mask-image: radial-gradient(ellipse 80% 70% at 50% 40%, black 30%, transparent 100%);
+    -webkit-mask-image: radial-gradient(ellipse 80% 70% at 50% 40%, black 30%, transparent 100%);
   }
 
   .hero-content {
-    max-width: 640px;
+    max-width: 700px;
     margin: 0 auto;
     text-align: center;
+    position: relative;
+    z-index: 1;
+    animation: fade-in-up 0.8s ease both;
   }
 
   .hero-badge {
-    display: inline-block;
-    padding: 4px 14px;
-    background: var(--color-primary-muted);
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 18px;
+    background: rgba(34, 197, 94, 0.1);
+    border: 1px solid rgba(34, 197, 94, 0.2);
     color: var(--color-primary-hover);
-    border-radius: 20px;
-    font-size: 0.8rem;
+    border-radius: 100px;
+    font-size: 0.82rem;
     font-weight: 600;
-    margin-bottom: var(--spacing-lg);
+    margin-bottom: var(--spacing-xl);
     letter-spacing: 0.02em;
   }
 
-  .hero h1 { margin-bottom: var(--spacing-md); }
+  .hero-badge-dot {
+    width: 6px;
+    height: 6px;
+    background: var(--color-primary);
+    border-radius: 50%;
+    animation: glow-pulse 2s ease-in-out infinite;
+  }
+
+  .hero h1 {
+    font-size: 3.25rem;
+    margin-bottom: var(--spacing-lg);
+    letter-spacing: -0.03em;
+    line-height: 1.1;
+  }
+
+  .gradient-text {
+    background: linear-gradient(135deg, var(--color-primary-hover) 0%, var(--color-accent-hover) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
 
   .hero p {
-    font-size: 1.1rem;
+    font-size: 1.15rem;
     margin-bottom: var(--spacing-xl);
+    color: var(--color-text-secondary);
+    line-height: 1.7;
   }
 
   .hero-actions {
@@ -124,8 +253,24 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
     flex-wrap: wrap;
   }
 
+  .btn-glow {
+    box-shadow: 0 0 20px rgba(34, 197, 94, 0.2), 0 2px 8px rgba(34, 197, 94, 0.15);
+  }
+
+  .btn-glow:hover {
+    box-shadow: 0 0 30px rgba(34, 197, 94, 0.35), 0 4px 16px rgba(34, 197, 94, 0.25);
+  }
+
+  /* ========== QUICK ACCESS ========== */
   .section-title {
     text-align: center;
+    margin-bottom: var(--spacing-sm);
+  }
+
+  .section-subtitle {
+    text-align: center;
+    font-size: 1rem;
+    color: var(--color-text-muted);
     margin-bottom: var(--spacing-xl);
   }
 
@@ -141,16 +286,33 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
     gap: var(--spacing-md);
     padding: var(--spacing-lg);
     background: var(--color-bg-card);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
     border: 1px solid var(--color-border);
-    border-radius: var(--radius-lg);
+    border-radius: var(--radius-xl);
     text-decoration: none;
-    transition: all var(--transition-normal);
+    transition: all var(--transition-slow);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .quick-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(255,255,255,0.03) 0%, transparent 50%);
+    opacity: 0;
+    transition: opacity var(--transition-normal);
   }
 
   .quick-card:hover {
-    border-color: var(--color-border-light);
-    transform: translateY(-3px);
-    box-shadow: var(--shadow-lg);
+    border-color: rgba(255, 255, 255, 0.12);
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+  }
+
+  .quick-card:hover::before {
+    opacity: 1;
   }
 
   .quick-card-icon {
@@ -160,6 +322,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
     display: flex;
     align-items: center;
     justify-content: center;
+    position: relative;
   }
 
   .icon-blue { background: var(--color-accent-muted); color: var(--color-accent-hover); }
@@ -170,25 +333,61 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
   .quick-card h3 {
     font-size: 1.05rem;
     color: var(--color-text);
+    position: relative;
   }
 
   .quick-card p {
     font-size: 0.875rem;
     color: var(--color-text-muted);
-    line-height: 1.5;
+    line-height: 1.55;
+    flex: 1;
+    position: relative;
   }
 
+  .card-arrow {
+    color: var(--color-text-muted);
+    transition: all var(--transition-normal);
+    display: flex;
+    align-items: center;
+    position: relative;
+  }
+
+  .quick-card:hover .card-arrow {
+    color: var(--color-primary-hover);
+    transform: translateX(4px);
+  }
+
+  /* ========== INFO BAR ========== */
   .info-card {
     display: flex;
     align-items: center;
-    gap: var(--spacing-md);
+    gap: var(--spacing-lg);
     padding: var(--spacing-lg) var(--spacing-xl);
     background: var(--color-bg-card);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
     border: 1px solid var(--color-border);
-    border-radius: var(--radius-lg);
-    color: var(--color-text-muted);
-    max-width: 480px;
+    border-radius: var(--radius-xl);
+    max-width: 520px;
     margin: 0 auto;
+    transition: all var(--transition-normal);
+  }
+
+  .info-card:hover {
+    border-color: var(--color-border-light);
+    box-shadow: var(--shadow-md);
+  }
+
+  .info-card-icon {
+    width: 48px;
+    height: 48px;
+    min-width: 48px;
+    border-radius: var(--radius-md);
+    background: var(--color-primary-muted);
+    color: var(--color-primary-hover);
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   .info-label {
@@ -198,17 +397,24 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
   }
 
   .info-email {
-    font-size: 1rem;
+    font-size: 1.05rem;
     font-weight: 600;
     color: var(--color-primary-hover);
   }
 
+  /* ========== RESPONSIVE ========== */
   @media (max-width: 900px) {
     .cards-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  @media (max-width: 768px) {
+    .hero { padding: var(--spacing-3xl) 0 var(--spacing-2xl); }
+    .hero h1 { font-size: 2.25rem; }
   }
 
   @media (max-width: 480px) {
     .cards-grid { grid-template-columns: 1fr; }
     .hero-actions { flex-direction: column; align-items: center; }
+    .hero h1 { font-size: 1.85rem; }
   }
 </style>

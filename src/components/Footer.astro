@@ -4,6 +4,7 @@ const year = new Date().getFullYear();
 ---
 
 <footer class="footer">
+  <div class="footer-glow"></div>
   <div class="footer-container">
     <div class="footer-grid">
       <div class="footer-brand">
@@ -61,15 +62,26 @@ const year = new Date().getFullYear();
 <style>
   .footer {
     background: var(--color-bg-secondary);
-    border-top: 1px solid var(--color-border);
     padding: var(--spacing-2xl) 0 var(--spacing-lg);
     margin-top: var(--spacing-3xl);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .footer-glow {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--color-primary), var(--color-accent), transparent);
   }
 
   .footer-container {
     max-width: var(--max-width);
     margin: 0 auto;
     padding: 0 var(--spacing-lg);
+    position: relative;
   }
 
   .footer-grid {
@@ -86,6 +98,11 @@ const year = new Date().getFullYear();
     font-weight: 700;
     font-size: 1.1rem;
     margin-bottom: var(--spacing-md);
+    transition: color var(--transition-fast);
+  }
+
+  .footer-logo img {
+    border-radius: 6px;
   }
 
   .footer-logo:hover {
@@ -99,10 +116,10 @@ const year = new Date().getFullYear();
   }
 
   .footer-col h4 {
-    font-size: 0.85rem;
+    font-size: 0.8rem;
     font-weight: 600;
     text-transform: uppercase;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.08em;
     color: var(--color-text-secondary);
     margin-bottom: var(--spacing-md);
   }
@@ -111,13 +128,13 @@ const year = new Date().getFullYear();
     list-style: none;
     display: flex;
     flex-direction: column;
-    gap: var(--spacing-sm);
+    gap: 10px;
   }
 
   .footer-col a {
     font-size: 0.875rem;
     color: var(--color-text-muted);
-    transition: color var(--transition-fast);
+    transition: all var(--transition-fast);
   }
 
   .footer-col a:hover {
